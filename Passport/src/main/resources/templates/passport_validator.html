@@ -1,0 +1,69 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Request List</title>
+		
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+			crossorigin="anonymous" />
+	</head>
+	
+	<body>
+		
+		<div class="container" align="center">
+		
+			<h3>Issue Request List</h3>
+			
+			<hr/>
+	
+			<br/><br/>
+			<table class="table table-bordered table-striped">
+			
+				<thead>
+					<tr>
+						<th>Aadhar No.</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Gender</th>
+						<th>Address</th>
+						<th>Father's Name</th>
+						<th>Mother's Name</th>
+						<th>Date Of Birth</th>
+						<th>Birth Place</th>
+						<th>Issue Place</th>
+						<th>Issue Date</th>
+						<th>Expiry Date</th>
+                        <th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="issue: ${person}">
+						<td th:text="${issue.AadharNo}" />
+						<td th:text="${issue.FirstName}" />
+						<td th:text="${issue.LastName}" />
+						<td th:text="${issue.Gender}" />
+						<td th:text="${issue.Address}" />
+						<td th:text="${issue.FatherName}" />
+						<td th:text="${issue.MotherName}" />
+						<td th:text="${issue.DateOfBirth}" />
+						<td th:text="${issue.BirthPlace}" />
+						<td th:text="${issue.IssuePlace}" />
+						<td th:text="${issue.IssueDate}" />
+						<td th:text="${issue.ExpiryDate}" />
+                        <td>
+                            <form method = "POST" th:action = "@{/savePerson}">
+                                <button type="submit" style="height: 80px; width: 200px"class="btn btn-success col-8">Validate and Issue</button>
+                            </form>
+								<button type="submit" style="height: 50px; width: 200px"class="btn btn-danger col-8">Reject</button>
+                        </td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+		
+		
+	</body>
+	
+</html>
