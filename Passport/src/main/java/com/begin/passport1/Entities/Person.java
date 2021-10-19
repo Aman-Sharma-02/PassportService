@@ -1,14 +1,16 @@
 package com.begin.passport1.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Person {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="application_id", nullable=false, updatable=false)
+    private int id;
+    
     private int AadharNo;
-
     private String FirstName;
     private String LastName;
     private String Gender;
@@ -20,10 +22,12 @@ public class Person {
     private String IssuePlace;
     private String IssueDate;
     private String ExpiryDate;
+    private String Status;
 
-    public Person(int aadharNo, String firstName, String lastName, String gender, String address, String fatherName, String motherName, String dateOfBirth, String birthPlace, String issuePlace, String issueDate, String expiryDate)
+    public Person(int ids,int aadharNo, String firstName, String lastName, String gender, String address, String fatherName, String motherName, String dateOfBirth, String birthPlace, String issuePlace, String issueDate, String expiryDate, String status)
     {
         super();
+        this.id= ids;
         this.AadharNo = aadharNo;
         this.FirstName = firstName;
         this.LastName = lastName;
@@ -36,13 +40,30 @@ public class Person {
         this.IssuePlace = issuePlace;
         this.IssueDate = issueDate;
         this.ExpiryDate = expiryDate;
+        this.Status = status;
     }
-
+    
     public Person()
     {
         super();
     }
 
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getLastName()
     {
         return LastName;
@@ -147,21 +168,23 @@ public class Person {
         this.ExpiryDate = expiryDate;
     }
 
-    @Override
+   @Override
     public String toString() {
         return "Person{" +
-                "AadharNo=" + this.AadharNo +
-                ", FirstName='" + this.FirstName + '\'' +
-                ", LastName='" + this.LastName + '\'' +
-                ", Gender='" + this.Gender + '\'' +
-                ", Address='" + this.Address + '\'' +
-                ", FatherName='" + this.FatherName + '\'' +
-                ", MotherName='" + this.MotherName + '\'' +
-                ", DateOfBirth='" + this.DateOfBirth + '\'' +
-                ", BirthPlace='" + this.BirthPlace + '\'' +
-                ", IssuePlace='" + this.IssuePlace + '\'' +
-                ", IssueDate='" + this.IssueDate + '\'' +
-                ", ExpiryDate='" + this.ExpiryDate + '\'' +
+                "id=" + id +
+                ", AadharNo=" + AadharNo +
+                ", FirstName='" + FirstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", Gender='" + Gender + '\'' +
+                ", Address='" + Address + '\'' +
+                ", FatherName='" + FatherName + '\'' +
+                ", MotherName='" + MotherName + '\'' +
+                ", DateOfBirth='" + DateOfBirth + '\'' +
+                ", BirthPlace='" + BirthPlace + '\'' +
+                ", IssuePlace='" + IssuePlace + '\'' +
+                ", IssueDate='" + IssueDate + '\'' +
+                ", ExpiryDate='" + ExpiryDate + '\'' +
+                ", Status='" + Status + '\'' +
                 '}';
     }
 }
