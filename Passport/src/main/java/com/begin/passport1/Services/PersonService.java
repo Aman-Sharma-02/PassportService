@@ -3,16 +3,13 @@ package com.begin.passport1.Services;
 import com.begin.passport1.Entities.Person;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface PersonService {
-    List<Person> getPersons();
+    List<Person> getListOfIssueRequest();
 
-    Optional<Person> getPerson(int aadharId);
+    Person getIssueRequest(int aadharId);
 
-    Person addPerson(Person person);
+    void addIssueRequest(Person person);
 
-    Person updatePerson(Person person);
-
-    void deletePerson(int parseInt);
+    void deleteRequest(int id);
 }
