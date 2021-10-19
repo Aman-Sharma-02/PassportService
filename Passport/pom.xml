@@ -12,8 +12,8 @@
 	<artifactId>sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>sample</name>
-	<description>Demo project for Spring Boot</description>
+	<name>PassportApplication</name>
+	<description>Passport application for issuing new passport and validating passport issue request</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
